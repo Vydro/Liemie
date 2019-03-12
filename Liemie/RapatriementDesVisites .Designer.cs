@@ -1,6 +1,6 @@
 ﻿namespace Liemie
 {
-    partial class SaisirUneVisite
+    partial class RapatriementDesVisites
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaisirUneVisite));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RapatriementDesVisites));
             this.SuspendLayout();
             // 
-            // SaisirUneVisite
+            // RapatriementDesVisites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 360);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SaisirUneVisite";
-            this.Text = "SaisirUneVisite";
+            this.Name = "RapatriementDesVisites";
+            this.Text = "RapatriementDesVisites";
             this.ResumeLayout(false);
 
         }
