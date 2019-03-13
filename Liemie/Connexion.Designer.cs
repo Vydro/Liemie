@@ -36,6 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_seConnecter = new System.Windows.Forms.Button();
             this.btn_annuler = new System.Windows.Forms.Button();
+            this.lbl_alert = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +102,22 @@
             this.btn_annuler.UseVisualStyleBackColor = true;
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
+            // lbl_alert
+            // 
+            this.lbl_alert.AutoSize = true;
+            this.lbl_alert.ForeColor = System.Drawing.Color.Red;
+            this.lbl_alert.Location = new System.Drawing.Point(187, 281);
+            this.lbl_alert.Name = "lbl_alert";
+            this.lbl_alert.Size = new System.Drawing.Size(43, 13);
+            this.lbl_alert.TabIndex = 7;
+            this.lbl_alert.Text = "lbl_alert";
+            // 
             // Connexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 462);
+            this.Controls.Add(this.lbl_alert);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_seConnecter);
             this.Controls.Add(this.pictureBox1);
@@ -132,6 +144,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_seConnecter;
         private System.Windows.Forms.Button btn_annuler;
+        private System.Windows.Forms.Label lbl_alert;
     }
 }
 

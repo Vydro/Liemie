@@ -33,11 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,11 +62,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="administrateur.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="badge.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorie_indisponibilite.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categ_soins.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="chambre_forte.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Connexion.Designer.cs">
       <DependentUpon>Connexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="convalescence.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="indisponibilite.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="infirmiere.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="infirmiere_badge.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lieu_convalescence.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mdlKeliemie.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mdlKeliemie.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mdlKeliemie.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mdlKeliemie.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Keliemie.cs" />
+    <Compile Include="patient.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="personne.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="personne_login.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +136,24 @@
     </Compile>
     <Compile Include="SaisirUneVisite.Designer.cs">
       <DependentUpon>SaisirUneVisite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="soins.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="soins_visite.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="temoignage.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="token.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="type_soins.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="visite.cs">
+      <DependentUpon>mdlKeliemie.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
@@ -87,6 +173,14 @@
     <EmbeddedResource Include="SaisirUneVisite.resx">
       <DependentUpon>SaisirUneVisite.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="mdlKeliemie.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>mdlKeliemie.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>mdlKaliemie</CustomToolNamespace>
+    </EntityDeploy>
+    <None Include="mdlKeliemie.edmx.diagram">
+      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -100,6 +194,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mdlKeliemie.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>mdlKeliemie.Context.cs</LastGenOutput>
+      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
+    </Content>
+    <Content Include="mdlKeliemie.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
+      <LastGenOutput>mdlKeliemie.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

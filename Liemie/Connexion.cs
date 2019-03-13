@@ -21,39 +21,30 @@ namespace Liemie
         public Connexion()
         {
             InitializeComponent();
+            lbl_alert.Text = "";
         }
 
         private void btn_seConnecter_Click(object sender, EventArgs e)
         {
-            connexion(tb_identifiant.Text, tb_motDePasse.Text);
+            lbl_alert.Text = "";
+            if (tb_identifiant.Text != "" || tb_motDePasse.Text != "")
+            {
+                string lib;
+                /*if(Model_Keliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text) == "Error_local_request")
+                {
+                     Model_Keliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
+                }*/
+                //lib = Model_Keliemie.ConnexionLocal(tb_identifiant.Text,Model_Keliemie.encode(tb_motDePasse.Text));
+                lib = Model_Keliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
+                MessageBox.Show(lib);
+            }
+            else { lbl_alert.Text = "*Tous les champs doivent être remplient"; }
         }
 
         private void btn_annuler_Click(object sender, EventArgs e)
         {
             tb_identifiant.Text = "";
             tb_motDePasse.Text = "";
-        }
-
-        public static string connexion(string login, string passwd)
-        {
-            string vretour = "Error";
-            var url = "http://www.btssio-carcouet.fr/ppe4/public/connect2/" + login + "/" + passwd + "/infirmiere";
-            WebRequest request = WebRequest.Create(url);
-            request.Credentials = CredentialCache.DefaultCredentials;
-            WebResponse response = request.GetResponse();
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-
-            string responseFromServer = reader.ReadToEnd();
-
-            JObject JsonLogin = JObject.Parse(responseFromServer);
-            if(JsonLogin["nom"].ToString() != "" && JsonLogin["prenom"].ToString() != "")
-            {
-                string identifiant = JsonLogin["nom"].ToString() + " " + JsonLogin["prenom"].ToString();
-                vretour = identifiant;
-            }
-            return vretour;
         }
     }
 }
