@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08ddea71e1834518a50b4d43dc5c85aa" Name="Diagram1" ZoomLevel="35">
+        <EntityTypeShape EntityType="mdlKaliemie.badge" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.categ_soins" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.categorie_indisponibilite" Width="1.5" PointX="2.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.chambre_forte" Width="1.5" PointX="9.125" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.convalescence" Width="1.5" PointX="10.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.indisponibilite" Width="1.5" PointX="5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.infirmiere" Width="1.5" PointX="2.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.infirmiere_badge" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.lieu_convalescence" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.patient" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.personne" Width="1.5" PointX="0.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.personne_login" Width="1.5" PointX="2.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.soins" Width="1.5" PointX="10.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.soins_visite" Width="1.5" PointX="15.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.temoignage" Width="1.5" PointX="5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.token" Width="1.5" PointX="5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.type_soins" Width="1.5" PointX="8" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.visite" Width="1.5" PointX="13.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.administrateur" Width="1.5" PointX="11.125" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="mdlKaliemie.infirmiere_badge_infirmiere_badge_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.type_soins_type_soins_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.indisponibilite_indisponibilite_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.convalescence_convalescence_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.convalescence_convalescence_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.indisponibilite_indisponibilite_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.infirmiere_infirmiere_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.infirmiere_badge_infirmiere_badge_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.patient_patient_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.visite_visite_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.lieu_convalescence_lieu_convalescence_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.patient_patient_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.patient_patient_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.visite_visite_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.personne_login_personne_login_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.temoignage_temoignage_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.token_token_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.soins_FK_soins" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.soins_visite_soins_visite_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.soins_visite_soins_visite_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="mdlKaliemie.specialisation" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -63,19 +63,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="administrateur.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="badge.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="categorie_indisponibilite.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="categ_soins.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="chambre_forte.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
@@ -84,44 +84,44 @@
       <DependentUpon>Connexion.cs</DependentUpon>
     </Compile>
     <Compile Include="convalescence.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="indisponibilite.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="infirmiere.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="infirmiere_badge.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="lieu_convalescence.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
-    <Compile Include="mdlKeliemie.Context.cs">
+    <Compile Include="mdlKaliemie.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>mdlKeliemie.Context.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="mdlKeliemie.cs">
+    <Compile Include="mdlKaliemie.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
-    <Compile Include="mdlKeliemie.Designer.cs">
+    <Compile Include="mdlKaliemie.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
+      <DependentUpon>mdlKaliemie.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model_Keliemie.cs" />
+    <Compile Include="Model_Kaliemie.cs" />
     <Compile Include="patient.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="personne.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="personne_login.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,22 +138,22 @@
       <DependentUpon>SaisirUneVisite.cs</DependentUpon>
     </Compile>
     <Compile Include="soins.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="soins_visite.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="temoignage.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="token.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="type_soins.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <Compile Include="visite.cs">
-      <DependentUpon>mdlKeliemie.tt</DependentUpon>
+      <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
@@ -173,13 +173,12 @@
     <EmbeddedResource Include="SaisirUneVisite.resx">
       <DependentUpon>SaisirUneVisite.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="mdlKeliemie.edmx">
+    <EntityDeploy Include="mdlKaliemie.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>mdlKeliemie.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>mdlKaliemie</CustomToolNamespace>
+      <LastGenOutput>mdlKaliemie.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="mdlKeliemie.edmx.diagram">
-      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
+    <None Include="mdlKaliemie.edmx.diagram">
+      <DependentUpon>mdlKaliemie.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -196,19 +195,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mdlKeliemie.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>mdlKeliemie.Context.cs</LastGenOutput>
-      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
-    </Content>
-    <Content Include="mdlKeliemie.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>mdlKeliemie.edmx</DependentUpon>
-      <LastGenOutput>mdlKeliemie.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="mdlKaliemie.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>mdlKaliemie.edmx</DependentUpon>
+      <LastGenOutput>mdlKaliemie.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="mdlKaliemie.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>mdlKaliemie.edmx</DependentUpon>
+      <LastGenOutput>mdlKaliemie.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,13 +12,13 @@ using Newtonsoft.Json.Converters;
 
 namespace Liemie
 {
-    class Model_Keliemie
+    class Model_Kaliemie
     {
-        private static connectKaliemie maConnexion;
+        private static Kaliemie maConnexion;
 
         public static void init()
         {
-            maConnexion = new connectKaliemie();
+            maConnexion = new Kaliemie();
         }
 
 

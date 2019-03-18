@@ -35,7 +35,7 @@ namespace Liemie
                      Model_Keliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
                 }*/
                 //lib = Model_Keliemie.ConnexionLocal(tb_identifiant.Text,Model_Keliemie.encode(tb_motDePasse.Text));
-                lib = Model_Keliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
+                lib = Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
                 MessageBox.Show(lib);
             }
             else { lbl_alert.Text = "*Tous les champs doivent être remplient"; }

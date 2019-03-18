@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mdlKeliemie.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="mdlKaliemie.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="administrateur">
@@ -490,7 +490,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="mdlKeliemieStoreContainer">
+        <EntityContainer Name="mdlKaliemieStoreContainer">
           <EntitySet Name="badge" EntityType="Self.badge" Schema="ppe4" store:Type="Tables" />
           <EntitySet Name="categ_soins" EntityType="Self.categ_soins" Schema="ppe4" store:Type="Tables" />
           <EntitySet Name="categorie_indisponibilite" EntityType="Self.categorie_indisponibilite" Schema="ppe4" store:Type="Tables" />
@@ -608,7 +608,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="mdlKeliemie" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="mdlKaliemie" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="badge">
           <Key>
             <PropertyRef Name="id" />
@@ -1102,7 +1102,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
           <End Role="infirmiere" Type="Self.infirmiere" Multiplicity="*" />
           <End Role="type_soins" Type="Self.type_soins" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="connectKaliemie" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KaliemieConnect" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="badge" EntityType="Self.badge" />
           <EntitySet Name="categ_soins" EntityType="Self.categ_soins" />
           <EntitySet Name="categorie_indisponibilite" EntityType="Self.categorie_indisponibilite" />
@@ -1212,9 +1212,9 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="mdlKeliemieStoreContainer" CdmEntityContainer="connectKaliemie">
+        <EntityContainerMapping StorageEntityContainer="mdlKaliemieStoreContainer" CdmEntityContainer="KaliemieConnect">
           <EntitySetMapping Name="badge">
-            <EntityTypeMapping TypeName="mdlKeliemie.badge">
+            <EntityTypeMapping TypeName="mdlKaliemie.badge">
               <MappingFragment StoreEntitySet="badge">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="uid" ColumnName="uid" />
@@ -1223,7 +1223,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="categ_soins">
-            <EntityTypeMapping TypeName="mdlKeliemie.categ_soins">
+            <EntityTypeMapping TypeName="mdlKaliemie.categ_soins">
               <MappingFragment StoreEntitySet="categ_soins">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="libel" ColumnName="libel" />
@@ -1232,7 +1232,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="categorie_indisponibilite">
-            <EntityTypeMapping TypeName="mdlKeliemie.categorie_indisponibilite">
+            <EntityTypeMapping TypeName="mdlKaliemie.categorie_indisponibilite">
               <MappingFragment StoreEntitySet="categorie_indisponibilite">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="libelle" ColumnName="libelle" />
@@ -1240,7 +1240,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="chambre_forte">
-            <EntityTypeMapping TypeName="mdlKeliemie.chambre_forte">
+            <EntityTypeMapping TypeName="mdlKaliemie.chambre_forte">
               <MappingFragment StoreEntitySet="chambre_forte">
                 <ScalarProperty Name="badge" ColumnName="badge" />
                 <ScalarProperty Name="date" ColumnName="date" />
@@ -1249,7 +1249,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="convalescence">
-            <EntityTypeMapping TypeName="mdlKeliemie.convalescence">
+            <EntityTypeMapping TypeName="mdlKaliemie.convalescence">
               <MappingFragment StoreEntitySet="convalescence">
                 <ScalarProperty Name="id_patient" ColumnName="id_patient" />
                 <ScalarProperty Name="id_lieux" ColumnName="id_lieux" />
@@ -1261,7 +1261,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="indisponibilite">
-            <EntityTypeMapping TypeName="mdlKeliemie.indisponibilite">
+            <EntityTypeMapping TypeName="mdlKaliemie.indisponibilite">
               <MappingFragment StoreEntitySet="indisponibilite">
                 <ScalarProperty Name="infirmiere" ColumnName="infirmiere" />
                 <ScalarProperty Name="date_debut" ColumnName="date_debut" />
@@ -1273,7 +1273,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="infirmiere">
-            <EntityTypeMapping TypeName="mdlKeliemie.infirmiere">
+            <EntityTypeMapping TypeName="mdlKaliemie.infirmiere">
               <MappingFragment StoreEntitySet="infirmiere">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="fichier_photo" ColumnName="fichier_photo" />
@@ -1281,7 +1281,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="infirmiere_badge">
-            <EntityTypeMapping TypeName="mdlKeliemie.infirmiere_badge">
+            <EntityTypeMapping TypeName="mdlKaliemie.infirmiere_badge">
               <MappingFragment StoreEntitySet="infirmiere_badge">
                 <ScalarProperty Name="id_infirmiere" ColumnName="id_infirmiere" />
                 <ScalarProperty Name="id_badge" ColumnName="id_badge" />
@@ -1291,7 +1291,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lieu_convalescence">
-            <EntityTypeMapping TypeName="mdlKeliemie.lieu_convalescence">
+            <EntityTypeMapping TypeName="mdlKaliemie.lieu_convalescence">
               <MappingFragment StoreEntitySet="lieu_convalescence">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="titre" ColumnName="titre" />
@@ -1305,7 +1305,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="patient">
-            <EntityTypeMapping TypeName="mdlKeliemie.patient">
+            <EntityTypeMapping TypeName="mdlKaliemie.patient">
               <MappingFragment StoreEntitySet="patient">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="informations_medicales" ColumnName="informations_medicales" />
@@ -1315,7 +1315,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="personne">
-            <EntityTypeMapping TypeName="mdlKeliemie.personne">
+            <EntityTypeMapping TypeName="mdlKaliemie.personne">
               <MappingFragment StoreEntitySet="personne">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
@@ -1334,7 +1334,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="personne_login">
-            <EntityTypeMapping TypeName="mdlKeliemie.personne_login">
+            <EntityTypeMapping TypeName="mdlKaliemie.personne_login">
               <MappingFragment StoreEntitySet="personne_login">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="login" ColumnName="login" />
@@ -1345,7 +1345,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="soins">
-            <EntityTypeMapping TypeName="mdlKeliemie.soins">
+            <EntityTypeMapping TypeName="mdlKaliemie.soins">
               <MappingFragment StoreEntitySet="soins">
                 <ScalarProperty Name="id_categ_soins" ColumnName="id_categ_soins" />
                 <ScalarProperty Name="id_type_soins" ColumnName="id_type_soins" />
@@ -1358,7 +1358,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="soins_visite">
-            <EntityTypeMapping TypeName="mdlKeliemie.soins_visite">
+            <EntityTypeMapping TypeName="mdlKaliemie.soins_visite">
               <MappingFragment StoreEntitySet="soins_visite">
                 <ScalarProperty Name="visite" ColumnName="visite" />
                 <ScalarProperty Name="id_categ_soins" ColumnName="id_categ_soins" />
@@ -1370,7 +1370,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="temoignage">
-            <EntityTypeMapping TypeName="mdlKeliemie.temoignage">
+            <EntityTypeMapping TypeName="mdlKaliemie.temoignage">
               <MappingFragment StoreEntitySet="temoignage">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="personne_login" ColumnName="personne_login" />
@@ -1381,7 +1381,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="token">
-            <EntityTypeMapping TypeName="mdlKeliemie.token">
+            <EntityTypeMapping TypeName="mdlKaliemie.token">
               <MappingFragment StoreEntitySet="token">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_login" ColumnName="id_login" />
@@ -1391,7 +1391,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="type_soins">
-            <EntityTypeMapping TypeName="mdlKeliemie.type_soins">
+            <EntityTypeMapping TypeName="mdlKaliemie.type_soins">
               <MappingFragment StoreEntitySet="type_soins">
                 <ScalarProperty Name="id_categ_soins" ColumnName="id_categ_soins" />
                 <ScalarProperty Name="id_type_soins" ColumnName="id_type_soins" />
@@ -1401,7 +1401,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="visite">
-            <EntityTypeMapping TypeName="mdlKeliemie.visite">
+            <EntityTypeMapping TypeName="mdlKaliemie.visite">
               <MappingFragment StoreEntitySet="visite">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="patient" ColumnName="patient" />
@@ -1415,13 +1415,13 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="administrateur">
-            <EntityTypeMapping TypeName="mdlKeliemie.administrateur">
+            <EntityTypeMapping TypeName="mdlKaliemie.administrateur">
               <MappingFragment StoreEntitySet="administrateur">
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="specialisation" TypeName="mdlKeliemie.specialisation" StoreEntitySet="specialisation">
+          <AssociationSetMapping Name="specialisation" TypeName="mdlKaliemie.specialisation" StoreEntitySet="specialisation">
             <EndProperty Name="infirmiere">
               <ScalarProperty Name="id" ColumnName="id_infirmiere" />
             </EndProperty>

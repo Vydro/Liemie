@@ -13,10 +13,10 @@ namespace Liemie
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class connectKaliemie : DbContext
+    public partial class KaliemieConnect : DbContext
     {
-        public connectKaliemie()
-            : base("name=connectKaliemie")
+        public KaliemieConnect()
+            : base("name=KaliemieConnect")
         {
         }
     
