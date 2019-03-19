@@ -181,6 +181,33 @@
       <DependentUpon>mdlKaliemie.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\administrateur.datasource" />
+    <None Include="Properties\DataSources\badge.datasource" />
+    <None Include="Properties\DataSources\categorie_indisponibilite.datasource" />
+    <None Include="Properties\DataSources\categ_soins.datasource" />
+    <None Include="Properties\DataSources\chambre_forte.datasource" />
+    <None Include="Properties\DataSources\Connexion.datasource" />
+    <None Include="Properties\DataSources\convalescence.datasource" />
+    <None Include="Properties\DataSources\indisponibilite.datasource" />
+    <None Include="Properties\DataSources\infirmiere.datasource" />
+    <None Include="Properties\DataSources\infirmiere_badge.datasource" />
+    <None Include="Properties\DataSources\KaliemieConnect.datasource" />
+    <None Include="Properties\DataSources\Liemie.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Liemie.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\lieu_convalescence.datasource" />
+    <None Include="Properties\DataSources\Model_Kaliemie.datasource" />
+    <None Include="Properties\DataSources\patient.datasource" />
+    <None Include="Properties\DataSources\personne.datasource" />
+    <None Include="Properties\DataSources\personne_login.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\RapatriementDesVisites.datasource" />
+    <None Include="Properties\DataSources\SaisirUneVisite.datasource" />
+    <None Include="Properties\DataSources\soins.datasource" />
+    <None Include="Properties\DataSources\soins_visite.datasource" />
+    <None Include="Properties\DataSources\temoignage.datasource" />
+    <None Include="Properties\DataSources\token.datasource" />
+    <None Include="Properties\DataSources\type_soins.datasource" />
+    <None Include="Properties\DataSources\visite.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

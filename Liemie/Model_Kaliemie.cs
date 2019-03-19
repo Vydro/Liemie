@@ -14,16 +14,18 @@ namespace Liemie
 {
     class Model_Kaliemie
     {
-        private static Kaliemie maConnexion;
+        private static KaliemieConnect maConnexion;
+        
 
         public static void init()
         {
-            maConnexion = new Kaliemie();
+            maConnexion = new KaliemieConnect();
         }
 
 
         public static string encode(string input) //cryptage
         {
+            #region ancien code
             /*byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(PasswdSaisi);
             byte[] hash = (MD5.Create()).ComputeHash(inputBytes);
             StringBuilder sb = new StringBuilder();
@@ -32,6 +34,7 @@ namespace Liemie
                 sb.Append(hash[i].ToString("x2"));
             }
             return sb.ToString();*/
+            #endregion
 
             // step 1, calculate MD5 hash from input
             MD5 md5 = System.Security.Cryptography.MD5.Create();
@@ -58,7 +61,7 @@ namespace Liemie
 
             foreach (var v in LQuery)
             {
-                if (v.mp == password)
+                if (v.mp == password && v.login == login)
                 { vretour = login; }
             }
             return vretour;
@@ -66,7 +69,6 @@ namespace Liemie
         public static string connexionWebService(string login, string password)
         {
             string vretour = "Error_web_service_request";
-            //var url = "http://172.16.4.224/service-web/app/public/connect?login=" + login + "&mdp=" + password;
             var url = "http://www.btssio-carcouet.fr/ppe4/public/connect2/" + login + "/" + password + "/infirmiere";
             WebRequest request = WebRequest.Create(url);
             request.Credentials = CredentialCache.DefaultCredentials;
@@ -76,15 +78,78 @@ namespace Liemie
             StreamReader reader = new StreamReader(dataStream);
 
             string responseFromServer = reader.ReadToEnd();
-            vretour = responseFromServer;
-            //JObject JsonLogin = JObject.Parse(responseFromServer);
-            /*if (JsonLogin["nom"].ToString() != "" && JsonLogin["prenom"].ToString() != "")
+            JObject JsonLogin = JObject.Parse(responseFromServer);
+            if (JsonLogin["nom"].ToString() != "" && JsonLogin["prenom"].ToString() != "")
             {
                 string identifiant = JsonLogin["nom"].ToString() + " " + JsonLogin["prenom"].ToString();
                 vretour = identifiant;
+            }
+            return vretour;
+        }
 
+        public static bool AjoutPersonne(int id, string nom, string prenom, string sexe,
+            DateTime dateNaiss, DateTime dateDeces, string ad1, string ad2, int cp, string ville,
+                int telFixe, int telPort, string email)
+        {
+            bool vretour = true;
+            try
+            {
+                personne p = new personne();
+                p.id = id;
+                p.nom = nom;
+                p.prenom = prenom;
+                p.sexe = sexe;
+                p.date_naiss = dateNaiss;
+                p.date_deces = dateDeces;
+                p.ad1 = ad1;
+                p.ad2 = ad2;
+                maConnexion.personne.Add(p);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+            }
+            return vretour;
+        }
 
-            }*/
+        public static bool AjoutPersonneLogin(int id, string login, string mp,
+           DateTime derniereConnexion, int nbTentativeErreur)
+        {
+            bool vretour = true;
+            try
+            {
+                personne_login pl = new personne_login();
+                pl.id = id;
+                pl.login = login;
+                pl.mp = mp;
+                pl.derniere_connexion = derniereConnexion;
+                pl.nb_tentative_erreur = nbTentativeErreur;
+                maConnexion.personne_login.Add(pl);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+            }
+            return vretour;
+        }
+
+        public static bool ModifDerniereConnexion(DateTime dateDerniereConnexion)
+        {
+            dateDerniereConnexion = DateTime.Now.Date;
+            bool vretour = true;
+            try
+            {
+                personne_login pl = new personne_login();
+
+                maConnexion.personne_login.Add(pl);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+            }
             return vretour;
         }
 

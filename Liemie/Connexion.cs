@@ -46,5 +46,10 @@ namespace Liemie
             tb_identifiant.Text = "";
             tb_motDePasse.Text = "";
         }
+
+        private void Connexion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
