@@ -84,6 +84,9 @@ namespace Liemie
             {
                 try
                 {
+                    /*DateTime? uneDateDeces = null;
+                    if (! JsonLogin["date_deces"].HasValues) { uneDateDeces = Convert.ToDateTime(JsonLogin["date_deces"]); }*/
+
                     personne p = new personne
                     {
                         id = Convert.ToInt32(JsonLogin["id"].ToString()),
@@ -91,7 +94,7 @@ namespace Liemie
                         prenom = Convert.ToString(JsonLogin["prenom"]),
                         sexe = Convert.ToString(JsonLogin["sexe"]),
                         date_naiss = Convert.ToDateTime(JsonLogin["date_naiss"]),
-                        date_deces = Convert.ToDateTime(JsonLogin["date_deces"]),
+                        date_deces = null,
                         ad1 = Convert.ToString(JsonLogin["ad1"]),
                         ad2 = Convert.ToString(JsonLogin["ad2"]),
                         cp = Convert.ToInt32(JsonLogin["cp"]),
@@ -99,7 +102,7 @@ namespace Liemie
                         tel_fixe = Convert.ToString(JsonLogin["tel_fixe"]),
                         tel_port = Convert.ToString(JsonLogin["tel_port"]),
                         mail = Convert.ToString(JsonLogin["mail"]),
-                    };/*
+                    };
                     personne_login pl = new personne_login
                     {
                         id = Convert.ToInt32(JsonLogin["id"].ToString()),
@@ -107,15 +110,19 @@ namespace Liemie
                         mp = encode(password),
                         derniere_connexion = DateTime.Now.Date,
                         nb_tentative_erreur = 0,
-                    };
+                    };/*
                     infirmiere i = new infirmiere
                     {
                         id = Convert.ToInt32(JsonLogin["id"].ToString()),
                         infirmiere_badge = 
                         fichier_photo = 
                     };*/
-                }
-                catch (Exception e) { vretour = e.InnerException.ToString(); }
+                    maConnexion.personne.Add(p);
+                    maConnexion.personne_login.Add(pl);
+                    maConnexion.SaveChanges();
+                    vretour = "Ajout OK";
+                }catch (Exception e)
+                { vretour = e.ToString(); }
             }return vretour;
         }
 

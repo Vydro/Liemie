@@ -29,21 +29,15 @@ namespace Liemie
             lbl_alert.Text = "";
             if (tb_identifiant.Text != "" || tb_motDePasse.Text != "")
             {
-                string lib;
-                if(Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text) == "Error_local_request")
+                if (Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text) == "Error_local_request")
                 {
-                    try
+                    if (Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text) == "Error_web_service_request")
                     {
-                        if (Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text) == "Error_local_request") ;
-                    }catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.InnerException.ToString());
+                        lbl_alert.Text = Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text); lbl_alert.Text = "Error_web_service_request";
                     }
-                    
+                    else { lbl_alert.Text = "WebService OK"; }
                 }
-                //lib = Model_Keliemie.ConnexionLocal(tb_identifiant.Text,Model_Keliemie.encode(tb_motDePasse.Text));
-                lib = Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
-                MessageBox.Show(lib);
+                else {lbl_alert.Text = "Local OK"; }
             }
             else { lbl_alert.Text = "*Tous les champs doivent être remplient"; }
         }
