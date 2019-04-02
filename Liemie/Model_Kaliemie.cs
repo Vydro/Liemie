@@ -78,80 +78,50 @@ namespace Liemie
             StreamReader reader = new StreamReader(dataStream);
 
             string responseFromServer = reader.ReadToEnd();
-            JObject JsonLogin = JObject.Parse(responseFromServer);
+            JObject JsonLogin = new JObject();
+            JsonLogin = JObject.Parse(responseFromServer);
             if (JsonLogin["nom"].ToString() != "" && JsonLogin["prenom"].ToString() != "")
             {
-                string identifiant = JsonLogin["nom"].ToString() + " " + JsonLogin["prenom"].ToString();
-                vretour = identifiant;
-            }
-            return vretour;
+                try
+                {
+                    personne p = new personne
+                    {
+                        id = Convert.ToInt32(JsonLogin["id"].ToString()),
+                        nom = Convert.ToString(JsonLogin["nom"]),
+                        prenom = Convert.ToString(JsonLogin["prenom"]),
+                        sexe = Convert.ToString(JsonLogin["sexe"]),
+                        date_naiss = Convert.ToDateTime(JsonLogin["date_naiss"]),
+                        date_deces = Convert.ToDateTime(JsonLogin["date_deces"]),
+                        ad1 = Convert.ToString(JsonLogin["ad1"]),
+                        ad2 = Convert.ToString(JsonLogin["ad2"]),
+                        cp = Convert.ToInt32(JsonLogin["cp"]),
+                        ville = Convert.ToString(JsonLogin["ville"]),
+                        tel_fixe = Convert.ToString(JsonLogin["tel_fixe"]),
+                        tel_port = Convert.ToString(JsonLogin["tel_port"]),
+                        mail = Convert.ToString(JsonLogin["mail"]),
+                    };/*
+                    personne_login pl = new personne_login
+                    {
+                        id = Convert.ToInt32(JsonLogin["id"].ToString()),
+                        login = login,
+                        mp = encode(password),
+                        derniere_connexion = DateTime.Now.Date,
+                        nb_tentative_erreur = 0,
+                    };
+                    infirmiere i = new infirmiere
+                    {
+                        id = Convert.ToInt32(JsonLogin["id"].ToString()),
+                        infirmiere_badge = 
+                        fichier_photo = 
+                    };*/
+                }
+                catch (Exception e) { vretour = e.InnerException.ToString(); }
+            }return vretour;
         }
 
-        public static bool AjoutPersonne(int id, string nom, string prenom, string sexe,
-            DateTime dateNaiss, DateTime dateDeces, string ad1, string ad2, int cp, string ville,
-                int telFixe, int telPort, string email)
+        /*public bool ModifDerniereConnexion(personne_login pl, string dateDerniereConnexion)
         {
-            bool vretour = true;
-            try
-            {
-                personne p = new personne();
-                p.id = id;
-                p.nom = nom;
-                p.prenom = prenom;
-                p.sexe = sexe;
-                p.date_naiss = dateNaiss;
-                p.date_deces = dateDeces;
-                p.ad1 = ad1;
-                p.ad2 = ad2;
-                maConnexion.personne.Add(p);
-                maConnexion.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                vretour = false;
-            }
-            return vretour;
-        }
-
-        public static bool AjoutPersonneLogin(int id, string login, string mp,
-           DateTime derniereConnexion, int nbTentativeErreur)
-        {
-            bool vretour = true;
-            try
-            {
-                personne_login pl = new personne_login();
-                pl.id = id;
-                pl.login = login;
-                pl.mp = mp;
-                pl.derniere_connexion = derniereConnexion;
-                pl.nb_tentative_erreur = nbTentativeErreur;
-                maConnexion.personne_login.Add(pl);
-                maConnexion.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                vretour = false;
-            }
-            return vretour;
-        }
-
-        public static bool ModifDerniereConnexion(DateTime dateDerniereConnexion)
-        {
-            dateDerniereConnexion = DateTime.Now.Date;
-            bool vretour = true;
-            try
-            {
-                personne_login pl = new personne_login();
-
-                maConnexion.personne_login.Add(pl);
-                maConnexion.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                vretour = false;
-            }
-            return vretour;
-        }
+        }*/
 
     }
 }

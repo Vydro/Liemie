@@ -70,7 +70,7 @@
             this.tb_identifiant.Location = new System.Drawing.Point(277, 223);
             this.tb_identifiant.Name = "tb_identifiant";
             this.tb_identifiant.Size = new System.Drawing.Size(110, 20);
-            this.tb_identifiant.TabIndex = 3;
+            this.tb_identifiant.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -87,7 +87,7 @@
             this.btn_seConnecter.Location = new System.Drawing.Point(187, 300);
             this.btn_seConnecter.Name = "btn_seConnecter";
             this.btn_seConnecter.Size = new System.Drawing.Size(97, 23);
-            this.btn_seConnecter.TabIndex = 5;
+            this.btn_seConnecter.TabIndex = 3;
             this.btn_seConnecter.Text = "Se connecter";
             this.btn_seConnecter.UseVisualStyleBackColor = true;
             this.btn_seConnecter.Click += new System.EventHandler(this.btn_seConnecter_Click);
@@ -97,7 +97,7 @@
             this.btn_annuler.Location = new System.Drawing.Point(290, 300);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Size = new System.Drawing.Size(97, 23);
-            this.btn_annuler.TabIndex = 6;
+            this.btn_annuler.TabIndex = 4;
             this.btn_annuler.Text = "Annuler";
             this.btn_annuler.UseVisualStyleBackColor = true;
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
