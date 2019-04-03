@@ -55,14 +55,19 @@ namespace Liemie
             string vretour = "Error_local_request";
             password = encode(password); //cryptage
 
-            var LQuery = maConnexion.personne_login.ToList()
-                            .Where(x => x.login == login)
-                           .Select(x => new { x.login, x.mp });
+                var LQuery = maConnexion.personne_login.ToList()
+                                .Where(x => x.login == login)
+                               .Select(x => new { x.login, x.mp });
 
             foreach (var v in LQuery)
             {
-                if (v.mp == password && v.login == login)
-                { vretour = login; }
+                if (v.login == login && v.mp == password)
+                { vretour = login; break; }
+
+                if(v.login == login && v.mp != password)
+                {
+                    vretour = "Identifiant ou mot de passe incorrect";break;
+                }
             }
             return vretour;
         }
@@ -80,13 +85,11 @@ namespace Liemie
             string responseFromServer = reader.ReadToEnd();
             JObject JsonLogin = new JObject();
             JsonLogin = JObject.Parse(responseFromServer);
-            if (JsonLogin["nom"].ToString() != "" && JsonLogin["prenom"].ToString() != "")
+
+            if (! responseFromServer.Contains("{\"status\":\"false\"}"))
             {
                 try
                 {
-                    /*DateTime? uneDateDeces = null;
-                    if (! JsonLogin["date_deces"].HasValues) { uneDateDeces = Convert.ToDateTime(JsonLogin["date_deces"]); }*/
-
                     personne p = new personne
                     {
                         id = Convert.ToInt32(JsonLogin["id"].ToString()),
@@ -94,7 +97,6 @@ namespace Liemie
                         prenom = Convert.ToString(JsonLogin["prenom"]),
                         sexe = Convert.ToString(JsonLogin["sexe"]),
                         date_naiss = Convert.ToDateTime(JsonLogin["date_naiss"]),
-                        date_deces = null,
                         ad1 = Convert.ToString(JsonLogin["ad1"]),
                         ad2 = Convert.ToString(JsonLogin["ad2"]),
                         cp = Convert.ToInt32(JsonLogin["cp"]),
@@ -103,6 +105,9 @@ namespace Liemie
                         tel_port = Convert.ToString(JsonLogin["tel_port"]),
                         mail = Convert.ToString(JsonLogin["mail"]),
                     };
+                    if (JsonLogin["date_deces"].HasValues) { p.date_deces = Convert.ToDateTime(JsonLogin["date_deces"]); }
+                    else { p.date_deces = null; }
+                    
                     personne_login pl = new personne_login
                     {
                         id = Convert.ToInt32(JsonLogin["id"].ToString()),
@@ -120,15 +125,18 @@ namespace Liemie
                     maConnexion.personne.Add(p);
                     maConnexion.personne_login.Add(pl);
                     maConnexion.SaveChanges();
-                    vretour = "Ajout OK";
+                    vretour = "AjoutLocalOK";
                 }catch (Exception e)
                 { vretour = e.ToString(); }
-            }return vretour;
+            }
+            else { vretour = "Acces serveur distant impossible, identifiant ou mot de passe incorrect"; }
+            return vretour;
         }
 
-        /*public bool ModifDerniereConnexion(personne_login pl, string dateDerniereConnexion)
+        public static void AjouterTentativeConnexion()
         {
-        }*/
+
+        }
 
     }
 }

@@ -113,6 +113,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>mdlKaliemie.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model_Kaliemie.cs" />
     <Compile Include="patient.cs">
       <DependentUpon>mdlKaliemie.tt</DependentUpon>
@@ -125,18 +131,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RapatriementDesVisites .cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RapatriementDesVisites .Designer.cs">
-      <DependentUpon>RapatriementDesVisites .cs</DependentUpon>
-    </Compile>
-    <Compile Include="SaisirUneVisite.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SaisirUneVisite.Designer.cs">
-      <DependentUpon>SaisirUneVisite.cs</DependentUpon>
-    </Compile>
     <Compile Include="soins.cs">
       <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
@@ -158,6 +152,9 @@
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -167,12 +164,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RapatriementDesVisites .resx">
-      <DependentUpon>RapatriementDesVisites .cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SaisirUneVisite.resx">
-      <DependentUpon>SaisirUneVisite.cs</DependentUpon>
-    </EmbeddedResource>
     <EntityDeploy Include="mdlKaliemie.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>mdlKaliemie.Designer.cs</LastGenOutput>

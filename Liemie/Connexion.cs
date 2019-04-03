@@ -27,19 +27,27 @@ namespace Liemie
         private void btn_seConnecter_Click(object sender, EventArgs e)
         {
             lbl_alert.Text = "";
-            if (tb_identifiant.Text != "" || tb_motDePasse.Text != "")
+            Menu fm = new Menu();
+            if (tb_identifiant.Text != "" && tb_motDePasse.Text != "")
             {
-                if (Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text) == "Error_local_request")
+                switch (Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text))
                 {
-                    if (Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text) == "Error_web_service_request")
-                    {
-                        lbl_alert.Text = Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text); lbl_alert.Text = "Error_web_service_request";
-                    }
-                    else { lbl_alert.Text = "WebService OK"; }
+                    case "Error_local_request" :
+                        if (Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text) != "AjoutLocalOK")
+                        {
+                            lbl_alert.Text = Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
+                        }
+                        else {fm.Show(); this.Hide(); }
+                        break;
+                    case "Identifiant ou mot de passe incorrect":
+                        lbl_alert.Text = Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text);
+                        break;
+                    default :
+                        fm.Show(); this.Hide();
+                        break;
                 }
-                else {lbl_alert.Text = "Local OK"; }
             }
-            else { lbl_alert.Text = "*Tous les champs doivent être remplient"; }
+            else { lbl_alert.Text = "Tous les champs doivent être remplient"; }
         }
 
         private void btn_annuler_Click(object sender, EventArgs e)
