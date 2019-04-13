@@ -21,30 +21,46 @@ namespace Liemie
         public Connexion()
         {
             InitializeComponent();
+        }
+
+        private void Connexion_Load(object sender, EventArgs e)
+        {
+            
             lbl_alert.Text = "";
         }
 
         private void btn_seConnecter_Click(object sender, EventArgs e)
         {
             lbl_alert.Text = "";
-            Menu fm = new Menu();
+            
             if (tb_identifiant.Text != "" && tb_motDePasse.Text != "")
             {
                 switch (Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text))
                 {
-                    case "Error_local_request" :
-                        if (Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text) != "AjoutLocalOK")
-                        {
-                            lbl_alert.Text = Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text);
+                    case -1 :
+                        switch (Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text))
+                        { 
+                            case -1:
+                                lbl_alert.Text = "Votre compte n'a pas pû être ajouté au serveur local";
+                            break;
+                            case -2:
+                                lbl_alert.Text = "Le compte n'a pas été trouvez sur le serveur distant \n Identifiant ou mot de passe incorrect";
+                            break;
+                            default:
+                                Menu m1 = new Menu(Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text));
+                                m1.Show();
+                                this.Hide();
+                            break;
                         }
-                        else {fm.Show(); this.Hide(); }
                         break;
-                    case "Identifiant ou mot de passe incorrect":
-                        lbl_alert.Text = Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text);
+                    case -2:
+                        lbl_alert.Text = "Identifiant ou mot de passe incorrect";
                         break;
                     default :
-                        fm.Show(); this.Hide();
-                        break;
+                        Menu m2 = new Menu(Model_Kaliemie.connexionWebService(tb_identifiant.Text, tb_motDePasse.Text));
+                        m2.Show();
+                        this.Hide();
+                    break;
                 }
             }
             else { lbl_alert.Text = "Tous les champs doivent être remplient"; }
@@ -52,13 +68,11 @@ namespace Liemie
 
         private void btn_annuler_Click(object sender, EventArgs e)
         {
-            tb_identifiant.Text = "";
-            tb_motDePasse.Text = "";
+            /*tb_identifiant.Text = "";
+            tb_motDePasse.Text = "";*/
+            MessageBox.Show(Model_Kaliemie.RapatrierMesVisites(3));
         }
 
-        private void Connexion_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

@@ -25,7 +25,7 @@ namespace Liemie
         }
     
         public int id { get; set; }
-        public string fichier_photo { get; set; }
+        public byte[] fichier_photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<indisponibilite> indisponibilite { get; set; }

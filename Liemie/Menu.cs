@@ -12,20 +12,36 @@ namespace Liemie
 {
     public partial class Menu : Form
     {
-        public Menu()
+        int id, Index;
+        List<Panel> listPanel = new List<Panel>();
+        private void Menu_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
+            listPanel.Add(flp_mesVisites);
         }
 
+        public Menu(int unId)
+        {
+            InitializeComponent();
+            this.id = unId;
+        }
+
+       
+
+        private void FermerEtOuvrirCePanel(FlowLayoutPanel monFLP)
+        {
+            if(listPanel.Contains(monFLP))
+            {
+                foreach(FlowLayoutPanel flp in listPanel)
+                {
+                    flp.Hide();
+                }
+                monFLP.Show();
+            }
+        }
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Application.Exit();
-        }
     }
 }

@@ -6,7 +6,7 @@
     <edmx:StorageModels>
       <Schema Namespace="mdlKaliemie.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'ppe4.ppe4.administrateur' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="administrateur">
           <Key>
             <PropertyRef Name="id" />
@@ -25,7 +25,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="libel" Type="nvarchar(max)" Nullable="false" />
           <Property Name="description" Type="nvarchar(max)" />
         </EntityType>
@@ -75,7 +75,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="fichier_photo" Type="nvarchar" MaxLength="250" />
+          <Property Name="fichier_photo" Type="image" />
         </EntityType>
         <EntityType Name="infirmiere_badge">
           <Key>
@@ -114,7 +114,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="nom" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="prenom" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="sexe" Type="nchar" MaxLength="1" Nullable="false" />
@@ -209,7 +209,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="patient" Type="int" Nullable="false" />
           <Property Name="infirmiere" Type="int" Nullable="false" />
           <Property Name="date_prevue" Type="datetime2" Precision="0" Nullable="false" />
@@ -622,7 +622,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="libel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="type_soins" Relationship="Self.type_soins_type_soins_ibfk_1" FromRole="categ_soins" ToRole="type_soins" />
@@ -678,7 +678,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="fichier_photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="fichier_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="indisponibilite" Relationship="Self.indisponibilite_indisponibilite_ibfk_1" FromRole="infirmiere" ToRole="indisponibilite" />
           <NavigationProperty Name="personne" Relationship="Self.infirmiere_infirmiere_ibfk_1" FromRole="infirmiere" ToRole="personne" />
           <NavigationProperty Name="infirmiere_badge" Relationship="Self.infirmiere_badge_infirmiere_badge_ibfk_1" FromRole="infirmiere" ToRole="infirmiere_badge" />
@@ -732,7 +732,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="nom" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="sexe" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
@@ -834,7 +834,7 @@ avertissement 6002: La table/vue 'Kaliemie.ppe4.administrateur' n'a pas de clé 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="patient" Type="Int32" Nullable="false" />
           <Property Name="infirmiere" Type="Int32" Nullable="false" />
           <Property Name="date_prevue" Type="DateTime" Nullable="false" Precision="0" />

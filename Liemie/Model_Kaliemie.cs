@@ -50,30 +50,30 @@ namespace Liemie
             return sb.ToString();
         }
 
-        public static string ConnexionLocal(string login, string password)
+        public static int ConnexionLocal(string login, string password)
         {
-            string vretour = "Error_local_request";
+            int vretour = -1; //si n'existe pas en local envoi -1
             password = encode(password); //cryptage
 
                 var LQuery = maConnexion.personne_login.ToList()
                                 .Where(x => x.login == login)
-                               .Select(x => new { x.login, x.mp });
+                               .Select(x => new { x.login, x.mp, x.id });
 
             foreach (var v in LQuery)
             {
                 if (v.login == login && v.mp == password)
-                { vretour = login; break; }
+                { vretour = v.id; break; }
 
                 if(v.login == login && v.mp != password)
                 {
-                    vretour = "Identifiant ou mot de passe incorrect";break;
+                    vretour = -2;break;
                 }
             }
             return vretour;
         }
-        public static string connexionWebService(string login, string password)
+        public static int connexionWebService(string login, string password)
         {
-            string vretour = "Error_web_service_request";
+            int vretour;
             var url = "http://www.btssio-carcouet.fr/ppe4/public/connect2/" + login + "/" + password + "/infirmiere";
             WebRequest request = WebRequest.Create(url);
             request.Credentials = CredentialCache.DefaultCredentials;
@@ -115,28 +115,89 @@ namespace Liemie
                         mp = encode(password),
                         derniere_connexion = DateTime.Now.Date,
                         nb_tentative_erreur = 0,
-                    };/*
+                    };
                     infirmiere i = new infirmiere
                     {
                         id = Convert.ToInt32(JsonLogin["id"].ToString()),
-                        infirmiere_badge = 
-                        fichier_photo = 
-                    };*/
+                        fichier_photo = null,
+                    };
+                    
                     maConnexion.personne.Add(p);
                     maConnexion.personne_login.Add(pl);
+                    maConnexion.infirmiere.Add(i);
                     maConnexion.SaveChanges();
-                    vretour = "AjoutLocalOK";
-                }catch (Exception e)
-                { vretour = e.ToString(); }
+                    vretour = p.id; //renvoi l'id de la personne
+                }catch (Exception)
+                { vretour = -1; } //ajout problème
             }
-            else { vretour = "Acces serveur distant impossible, identifiant ou mot de passe incorrect"; }
+            else { vretour = -2; } //id ou mdp incorrect liens incorrect status false
             return vretour;
         }
 
-        public static void AjouterTentativeConnexion()
-        {
 
+        public static string RapatrierMesVisites(int identifiant)
+        {
+            string vretour = "";
+            var url = "http://www.btssio-carcouet.fr/ppe4/public/mesvisites/" + identifiant;
+            WebRequest request = WebRequest.Create(url);
+            request.Credentials = CredentialCache.DefaultCredentials;
+            WebResponse response = request.GetResponse();
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+
+            string responseFromServer = reader.ReadToEnd();
+            JArray JsonVisites = new JArray();
+            JsonVisites = JArray.Parse(responseFromServer);
+            if (responseFromServer != "[]")
+            {
+                try
+                {
+                    int index = 0, n = -1;
+                    visite[] v = new visite[JsonVisites.Count-1];
+                    while(JsonVisites.Count > index)
+                    {
+                        if(VisiteExiste(Convert.ToInt32(JsonVisites[index]["id"])) == false)
+                        {
+                            v[n + 1] = new visite
+                            {
+                                id = Convert.ToInt32(JsonVisites[index]["id"]),
+                                patient = Convert.ToInt32(JsonVisites[index]["patient"]),
+                                infirmiere = identifiant,
+                                date_prevue = Convert.ToDateTime(JsonVisites[index]["date_prevue"]),
+                                date_reelle = Convert.ToDateTime(JsonVisites[index]["date_reelle"]),
+                                duree = Convert.ToInt32(JsonVisites[index]["duree"]),
+                                compte_rendu_infirmiere = Convert.ToString(JsonVisites[index]["compte_rendu_infirmiere"]),
+                                compte_rendu_patient = Convert.ToString(JsonVisites[index]["compte_rendu_patient"]),
+                            };
+                            maConnexion.visite.Add(v[n + 1]);
+                        }
+                        index ++;
+                        n++;
+                    }
+                    maConnexion.SaveChanges();
+                }
+                catch (Exception e)
+                { vretour = "Le rapatriement des visites à échoué \n" + e; } //ajout problème
+            }
+            else { vretour = "il n'y a pas de visite à rapatrier"; } //id incorrect ou n'est pas une infirmiere
+            return vretour;
         }
 
+        public static bool VisiteExiste(int id)
+        {
+            bool vretour = false;
+
+            var LQuery = maConnexion.visite.ToList()
+                            .Where(x => x.id == id)
+                           .Select(x => new { x.id });
+
+            foreach (var v in LQuery)
+            {
+                if (v.id == id)
+                { vretour = true; break; }
+            }
+            return vretour;
+        }
     }
 }

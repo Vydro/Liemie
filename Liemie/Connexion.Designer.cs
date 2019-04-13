@@ -43,50 +43,56 @@
             // lbl_identifiant
             // 
             this.lbl_identifiant.AutoSize = true;
-            this.lbl_identifiant.Location = new System.Drawing.Point(184, 226);
+            this.lbl_identifiant.Location = new System.Drawing.Point(245, 278);
+            this.lbl_identifiant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_identifiant.Name = "lbl_identifiant";
-            this.lbl_identifiant.Size = new System.Drawing.Size(59, 13);
+            this.lbl_identifiant.Size = new System.Drawing.Size(77, 17);
             this.lbl_identifiant.TabIndex = 0;
             this.lbl_identifiant.Text = "Identifiant :";
             // 
             // lbl_mdp
             // 
             this.lbl_mdp.AutoSize = true;
-            this.lbl_mdp.Location = new System.Drawing.Point(184, 258);
+            this.lbl_mdp.Location = new System.Drawing.Point(245, 318);
+            this.lbl_mdp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_mdp.Name = "lbl_mdp";
-            this.lbl_mdp.Size = new System.Drawing.Size(77, 13);
+            this.lbl_mdp.Size = new System.Drawing.Size(101, 17);
             this.lbl_mdp.TabIndex = 1;
             this.lbl_mdp.Text = "Mot de passe :";
             // 
             // tb_motDePasse
             // 
-            this.tb_motDePasse.Location = new System.Drawing.Point(277, 255);
+            this.tb_motDePasse.Location = new System.Drawing.Point(369, 314);
+            this.tb_motDePasse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_motDePasse.Name = "tb_motDePasse";
-            this.tb_motDePasse.Size = new System.Drawing.Size(110, 20);
+            this.tb_motDePasse.Size = new System.Drawing.Size(145, 22);
             this.tb_motDePasse.TabIndex = 2;
             // 
             // tb_identifiant
             // 
-            this.tb_identifiant.Location = new System.Drawing.Point(277, 223);
+            this.tb_identifiant.Location = new System.Drawing.Point(369, 274);
+            this.tb_identifiant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_identifiant.Name = "tb_identifiant";
-            this.tb_identifiant.Size = new System.Drawing.Size(110, 20);
+            this.tb_identifiant.Size = new System.Drawing.Size(145, 22);
             this.tb_identifiant.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(187, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(249, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 190);
+            this.pictureBox1.Size = new System.Drawing.Size(267, 234);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // btn_seConnecter
             // 
-            this.btn_seConnecter.Location = new System.Drawing.Point(187, 300);
+            this.btn_seConnecter.Location = new System.Drawing.Point(249, 369);
+            this.btn_seConnecter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_seConnecter.Name = "btn_seConnecter";
-            this.btn_seConnecter.Size = new System.Drawing.Size(97, 23);
+            this.btn_seConnecter.Size = new System.Drawing.Size(129, 28);
             this.btn_seConnecter.TabIndex = 3;
             this.btn_seConnecter.Text = "Se connecter";
             this.btn_seConnecter.UseVisualStyleBackColor = true;
@@ -94,9 +100,10 @@
             // 
             // btn_annuler
             // 
-            this.btn_annuler.Location = new System.Drawing.Point(290, 300);
+            this.btn_annuler.Location = new System.Drawing.Point(387, 369);
+            this.btn_annuler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_annuler.Name = "btn_annuler";
-            this.btn_annuler.Size = new System.Drawing.Size(97, 23);
+            this.btn_annuler.Size = new System.Drawing.Size(129, 28);
             this.btn_annuler.TabIndex = 4;
             this.btn_annuler.Text = "Annuler";
             this.btn_annuler.UseVisualStyleBackColor = true;
@@ -106,17 +113,18 @@
             // 
             this.lbl_alert.AutoSize = true;
             this.lbl_alert.ForeColor = System.Drawing.Color.Red;
-            this.lbl_alert.Location = new System.Drawing.Point(187, 281);
+            this.lbl_alert.Location = new System.Drawing.Point(249, 346);
+            this.lbl_alert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_alert.Name = "lbl_alert";
-            this.lbl_alert.Size = new System.Drawing.Size(43, 13);
+            this.lbl_alert.Size = new System.Drawing.Size(58, 17);
             this.lbl_alert.TabIndex = 7;
             this.lbl_alert.Text = "lbl_alert";
             // 
             // Connexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 357);
+            this.ClientSize = new System.Drawing.Size(807, 439);
             this.Controls.Add(this.lbl_alert);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_seConnecter);
@@ -125,8 +133,8 @@
             this.Controls.Add(this.tb_motDePasse);
             this.Controls.Add(this.lbl_mdp);
             this.Controls.Add(this.lbl_identifiant);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Connexion";

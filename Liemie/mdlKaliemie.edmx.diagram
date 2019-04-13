@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="08ddea71e1834518a50b4d43dc5c85aa" Name="Diagram1" ZoomLevel="35">
-        <EntityTypeShape EntityType="mdlKaliemie.badge" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.categ_soins" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.categorie_indisponibilite" Width="1.5" PointX="2.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.chambre_forte" Width="1.5" PointX="9.125" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.convalescence" Width="1.5" PointX="10.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.indisponibilite" Width="1.5" PointX="5" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.infirmiere" Width="1.5" PointX="2.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.infirmiere_badge" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.lieu_convalescence" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.patient" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.personne" Width="1.5" PointX="0.5" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.personne_login" Width="1.5" PointX="2.75" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.soins" Width="1.5" PointX="10.25" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.soins_visite" Width="1.5" PointX="15.5" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.temoignage" Width="1.5" PointX="5" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.token" Width="1.5" PointX="5" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.type_soins" Width="1.5" PointX="8" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.visite" Width="1.5" PointX="13.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlKaliemie.administrateur" Width="1.5" PointX="11.125" PointY="12.5" IsExpanded="true" />
+      <Diagram DiagramId="7af2f7a779b041cc98cfc5ac5682894c" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="mdlKaliemie.badge" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.categ_soins" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.categorie_indisponibilite" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.chambre_forte" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.convalescence" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.indisponibilite" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.infirmiere" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.infirmiere_badge" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.lieu_convalescence" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.patient" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.personne" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.personne_login" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.soins" Width="1.5" PointX="10.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.soins_visite" Width="1.5" PointX="15.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.temoignage" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.token" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.type_soins" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.visite" Width="1.5" PointX="13.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlKaliemie.administrateur" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="mdlKaliemie.infirmiere_badge_infirmiere_badge_ibfk_2" ManuallyRouted="false" />
         <AssociationConnector Association="mdlKaliemie.type_soins_type_soins_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="mdlKaliemie.indisponibilite_indisponibilite_ibfk_2" ManuallyRouted="false" />
