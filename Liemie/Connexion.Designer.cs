@@ -63,15 +63,16 @@
             // tb_motDePasse
             // 
             this.tb_motDePasse.Location = new System.Drawing.Point(369, 314);
-            this.tb_motDePasse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_motDePasse.Margin = new System.Windows.Forms.Padding(4);
             this.tb_motDePasse.Name = "tb_motDePasse";
+            this.tb_motDePasse.PasswordChar = '•';
             this.tb_motDePasse.Size = new System.Drawing.Size(145, 22);
             this.tb_motDePasse.TabIndex = 2;
             // 
             // tb_identifiant
             // 
             this.tb_identifiant.Location = new System.Drawing.Point(369, 274);
-            this.tb_identifiant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_identifiant.Margin = new System.Windows.Forms.Padding(4);
             this.tb_identifiant.Name = "tb_identifiant";
             this.tb_identifiant.Size = new System.Drawing.Size(145, 22);
             this.tb_identifiant.TabIndex = 1;
@@ -80,7 +81,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(249, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(267, 234);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,7 +91,7 @@
             // btn_seConnecter
             // 
             this.btn_seConnecter.Location = new System.Drawing.Point(249, 369);
-            this.btn_seConnecter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_seConnecter.Margin = new System.Windows.Forms.Padding(4);
             this.btn_seConnecter.Name = "btn_seConnecter";
             this.btn_seConnecter.Size = new System.Drawing.Size(129, 28);
             this.btn_seConnecter.TabIndex = 3;
@@ -101,7 +102,7 @@
             // btn_annuler
             // 
             this.btn_annuler.Location = new System.Drawing.Point(387, 369);
-            this.btn_annuler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_annuler.Margin = new System.Windows.Forms.Padding(4);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Size = new System.Drawing.Size(129, 28);
             this.btn_annuler.TabIndex = 4;
@@ -113,7 +114,7 @@
             // 
             this.lbl_alert.AutoSize = true;
             this.lbl_alert.ForeColor = System.Drawing.Color.Red;
-            this.lbl_alert.Location = new System.Drawing.Point(249, 346);
+            this.lbl_alert.Location = new System.Drawing.Point(549, 317);
             this.lbl_alert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_alert.Name = "lbl_alert";
             this.lbl_alert.Size = new System.Drawing.Size(58, 17);
@@ -134,7 +135,7 @@
             this.Controls.Add(this.lbl_mdp);
             this.Controls.Add(this.lbl_identifiant);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Connexion";

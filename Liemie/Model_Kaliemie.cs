@@ -9,6 +9,7 @@ using System.Net;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
+using System.Globalization;
 
 namespace Liemie
 {
@@ -92,7 +93,7 @@ namespace Liemie
                 {
                     personne p = new personne
                     {
-                        id = Convert.ToInt32(JsonLogin["id"].ToString()),
+                        id = Convert.ToInt32(JsonLogin["id"]),
                         nom = Convert.ToString(JsonLogin["nom"]),
                         prenom = Convert.ToString(JsonLogin["prenom"]),
                         sexe = Convert.ToString(JsonLogin["sexe"]),
@@ -126,7 +127,7 @@ namespace Liemie
                     maConnexion.personne_login.Add(pl);
                     maConnexion.infirmiere.Add(i);
                     maConnexion.SaveChanges();
-                    vretour = p.id; //renvoi l'id de la personne
+                    vretour = i.id; //renvoi l'id de la personne
                 }catch (Exception)
                 { vretour = -1; } //ajout problème
             }
@@ -149,23 +150,28 @@ namespace Liemie
             string responseFromServer = reader.ReadToEnd();
             JArray JsonVisites = new JArray();
             JsonVisites = JArray.Parse(responseFromServer);
-            if (responseFromServer != "[]")
+            if (! responseFromServer.Contains("[]"))
             {
                 try
                 {
                     int index = 0, n = -1;
-                    visite[] v = new visite[JsonVisites.Count-1];
-                    while(JsonVisites.Count > index)
-                    {
+                    visite[] v = new visite[JsonVisites.Count];
+                    while (JsonVisites.Count > index)
+                    {   
                         if(VisiteExiste(Convert.ToInt32(JsonVisites[index]["id"])) == false)
                         {
+                            CultureInfo provider = CultureInfo.InvariantCulture;
+
+                            if(PatientExiste(Convert.ToInt32(JsonVisites[index]["patient"])) == false)
+                            { RapatrierPatient(Convert.ToInt32(JsonVisites[index]["patient"])); }
+
                             v[n + 1] = new visite
                             {
                                 id = Convert.ToInt32(JsonVisites[index]["id"]),
                                 patient = Convert.ToInt32(JsonVisites[index]["patient"]),
                                 infirmiere = identifiant,
-                                date_prevue = Convert.ToDateTime(JsonVisites[index]["date_prevue"]),
-                                date_reelle = Convert.ToDateTime(JsonVisites[index]["date_reelle"]),
+                                date_prevue = Convert.ToDateTime(JsonVisites[index]["date_prevue"], provider),
+                                date_reelle = null, //Convert.ToDateTime(JsonVisites[index]["date_reel"], provider),
                                 duree = Convert.ToInt32(JsonVisites[index]["duree"]),
                                 compte_rendu_infirmiere = Convert.ToString(JsonVisites[index]["compte_rendu_infirmiere"]),
                                 compte_rendu_patient = Convert.ToString(JsonVisites[index]["compte_rendu_patient"]),
@@ -176,28 +182,107 @@ namespace Liemie
                         n++;
                     }
                     maConnexion.SaveChanges();
+                    if(v.Count() == 0) { vretour = "Il n'y pas de visite supplémentaire"; } else {  }
                 }
                 catch (Exception e)
-                { vretour = "Le rapatriement des visites à échoué \n" + e; } //ajout problème
+                { vretour = "Le rapatriement des visites a échoué \n" + e; }
             }
-            else { vretour = "il n'y a pas de visite à rapatrier"; } //id incorrect ou n'est pas une infirmiere
+            else { vretour = "Il n'y a pas de visite"; }
             return vretour;
         }
 
-        public static bool VisiteExiste(int id)
+        public static string RapatrierPatient(int identifiant)
+        {
+            string v = "";
+            var url = "http://www.btssio-carcouet.fr/ppe4/public/personne/" + identifiant;
+            WebRequest request = WebRequest.Create(url);
+            request.Credentials = CredentialCache.DefaultCredentials;
+            WebResponse response = request.GetResponse();
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+
+            string responseFromServer = reader.ReadToEnd();
+            JArray JsonPatient = new JArray();
+            JsonPatient = JArray.Parse(responseFromServer);
+
+            if (! responseFromServer.Contains("[]"))
+            {
+                try
+                {
+                    personne per = new personne
+                    {
+                        id = Convert.ToInt32(JsonPatient[0]["id"]),
+                        nom = Convert.ToString(JsonPatient[0]["nom"]),
+                        prenom = Convert.ToString(JsonPatient[0]["prenom"]),
+                        sexe = Convert.ToString(JsonPatient[0]["sexe"]),
+                        date_naiss = Convert.ToDateTime(JsonPatient[0]["date_naiss"]),
+                        ad1 = Convert.ToString(JsonPatient[0]["ad1"]),
+                        ad2 = Convert.ToString(JsonPatient[0]["ad2"]),
+                        cp = Convert.ToInt32(JsonPatient[0]["cp"]),
+                        ville = Convert.ToString(JsonPatient[0]["ville"]),
+                        tel_fixe = Convert.ToString(JsonPatient[0]["tel_fixe"]),
+                        tel_port = Convert.ToString(JsonPatient[0]["tel_port"]),
+                        mail = Convert.ToString(JsonPatient[0]["mail"]),
+                    };
+                    if (JsonPatient[0]["date_deces"].HasValues) { per.date_deces = Convert.ToDateTime(JsonPatient["date_deces"]); }
+                    else { per.date_deces = null; }
+
+                    patient pat = new patient
+                    {
+                        id = Convert.ToInt32(JsonPatient[0]["id"]),
+                        informations_medicales = "",
+                        personne_de_confiance = null,
+                        infirmiere_souhait = null,
+                    };
+
+                    maConnexion.personne.Add(per);
+                    maConnexion.patient.Add(pat);
+                    maConnexion.SaveChanges();
+                    v= "ok";
+                }
+                catch (Exception e)
+                { v = e.ToString(); }
+                v = "non";
+            }return v;
+        }
+
+        public static bool VisiteExiste(int idVisite)
         {
             bool vretour = false;
 
             var LQuery = maConnexion.visite.ToList()
-                            .Where(x => x.id == id)
+                            .Where(x => x.id == idVisite)
                            .Select(x => new { x.id });
 
             foreach (var v in LQuery)
             {
-                if (v.id == id)
-                { vretour = true; break; }
+                if(v.id == idVisite) { vretour = true; }
             }
             return vretour;
+        }
+
+        public static bool PatientExiste(int idPatient)
+        {
+            bool vretour = false;
+
+            var LQuery = maConnexion.patient.ToList()
+                            .Where(x => x.id == idPatient)
+                           .Select(x => new { x.id });
+
+            foreach (var v in LQuery)
+            {
+                if (v.id == idPatient) { vretour = true; }
+            }
+            return vretour;
+        }
+
+        public static List<visite> listVisites(int id)
+        {
+            var LQuery = maConnexion.visite.ToList()
+                          .Where(x => x.infirmiere == id)
+                          .OrderBy(x => x.date_prevue);
+            return LQuery.ToList();
         }
     }
 }
