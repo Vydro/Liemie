@@ -171,11 +171,12 @@ namespace Liemie
                                 patient = Convert.ToInt32(JsonVisites[index]["patient"]),
                                 infirmiere = identifiant,
                                 date_prevue = Convert.ToDateTime(JsonVisites[index]["date_prevue"], provider),
-                                date_reelle = null, //Convert.ToDateTime(JsonVisites[index]["date_reel"], provider),
                                 duree = Convert.ToInt32(JsonVisites[index]["duree"]),
                                 compte_rendu_infirmiere = Convert.ToString(JsonVisites[index]["compte_rendu_infirmiere"]),
                                 compte_rendu_patient = Convert.ToString(JsonVisites[index]["compte_rendu_patient"]),
                             };
+                            if (JsonVisites[index]["date_reelle"].ToString() != "0000-00-00 00:00:00") { v[n + 1].date_reelle = Convert.ToDateTime(JsonVisites[index]["date_reelle"], provider); }
+                            else { v[n + 1].date_reelle = null; }
                             maConnexion.visite.Add(v[n + 1]);
                         }
                         index ++;

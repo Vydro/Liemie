@@ -25,7 +25,7 @@ namespace Liemie
         {
             listPanel.Add(pnl_menu);
             listPanel.Add(pnl_mesVisites);
-            DimenssionDesPanels(908, 462);
+            LocSizePanel(11, 26, 677, 373);
             ToutFermerEtOuvrirCePanel(pnl_menu);
         }
 
@@ -41,10 +41,11 @@ namespace Liemie
             }
         }
 
-        public void DimenssionDesPanels(int h, int l)
+        public void LocSizePanel(int x, int y, int h, int l)
         {
             foreach (Panel pnl in listPanel)
             {
+                pnl.Location = new Point(x, y);
                 pnl.Size = new Size(h, l);
             }
         }

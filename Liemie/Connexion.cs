@@ -72,6 +72,9 @@ namespace Liemie
 
         }
 
-
+        private void Connexion_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
