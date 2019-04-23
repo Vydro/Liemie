@@ -49,17 +49,6 @@ namespace Liemie
             }
         }
 
-       
-        private void saisieVisiteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToutFermerEtOuvrirCePanel(pnl_mesVisites);
-            AfficherDGVMesVisites();
-        }
-        private void visitesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToutFermerEtOuvrirCePanel(pnl_menu);
-        }
-
 
         private void btn_màjVisites_Click(object sender, EventArgs e)
         {
@@ -90,15 +79,29 @@ namespace Liemie
             dgv_mesVisites.Columns["compte_rendu_patient"].HeaderText = "Compte rendu patient";
         }
 
+        private void tsm_planningVisites_Click(object sender, EventArgs e)
+        {
+            ToutFermerEtOuvrirCePanel(pnl_mesVisites);
+            AfficherDGVMesVisites();
+        }
 
+        private void tsm_menuPrincipal_Click(object sender, EventArgs e)
+        {
+            ToutFermerEtOuvrirCePanel(pnl_menu);
+        }
 
+        private void tsm_deconnexion_Click(object sender, EventArgs e)
+        {
+            Connexion c = new Connexion();
+            c.Show();
+            this.Hide();
+        }
 
-
-
-         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+
 
     }
 }
