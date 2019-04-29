@@ -46,8 +46,7 @@ namespace Liemie
                                 lbl_alert.Text = "Le compte n'a pas été trouvez sur le serveur distant \n Identifiant ou mot de passe incorrect";
                             break;
                             default:
-                                Menu m1 = new Menu(Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text));
-                                m1.Show();
+                                new Menu(Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text)).Show();
                                 this.Hide();
                             break;
                         }
@@ -56,8 +55,7 @@ namespace Liemie
                         lbl_alert.Text = "Identifiant ou mot de passe incorrect";
                         break;
                     default :
-                        Menu m2 = new Menu(Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text));
-                        m2.Show();
+                        new Menu(Model_Kaliemie.ConnexionLocal(tb_identifiant.Text, tb_motDePasse.Text)).Show();
                         this.Hide();
                     break;
                 }

@@ -65,7 +65,7 @@ namespace Liemie
                 if (v.login == login && v.mp == password)
                 { vretour = v.id; break; }
 
-                if(v.login == login && v.mp != password)
+                if(v.login  == login && v.mp != password)
                 {
                     vretour = -2;break;
                 }
@@ -154,12 +154,14 @@ namespace Liemie
             {
                 try
                 {
+                    bool tf = false;
                     int index = 0, n = -1;
                     visite[] v = new visite[JsonVisites.Count];
                     while (JsonVisites.Count > index)
                     {   
                         if(VisiteExiste(Convert.ToInt32(JsonVisites[index]["id"])) == false)
                         {
+                            tf = true;
                             CultureInfo provider = CultureInfo.InvariantCulture;
 
                             if(PatientExiste(Convert.ToInt32(JsonVisites[index]["patient"])) == false)
@@ -183,7 +185,7 @@ namespace Liemie
                         n++;
                     }
                     maConnexion.SaveChanges();
-                    if(v.Count() == 0) { vretour = "Il n'y pas de visite supplémentaire"; } else {  }
+                    if(tf == false) { vretour = "Il n'y pas de visite supplémentaire"; } else {  }
                 }
                 catch (Exception e)
                 { vretour = "Le rapatriement des visites a échoué \n" + e; }
@@ -244,8 +246,9 @@ namespace Liemie
                 }
                 catch (Exception e)
                 { v = e.ToString(); }
-                v = "non";
-            }return v;
+                
+            }else{ v = "personne inexistante";}
+            return v;
         }
 
         public static bool VisiteExiste(int idVisite)

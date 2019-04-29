@@ -66,6 +66,8 @@ namespace Liemie
             {
                 dgv_mesVisites.Columns[i].Visible = false;
             }
+            dgv_mesVisites.Columns["id"].Visible = true;
+            dgv_mesVisites.Columns["id"].HeaderText = "N°";
             dgv_mesVisites.Columns["patient"].Visible = true;
             dgv_mesVisites.Columns["patient"].HeaderText = "Patient";
             dgv_mesVisites.Columns["date_prevue"].Visible = true;
@@ -78,6 +80,7 @@ namespace Liemie
             dgv_mesVisites.Columns["compte_rendu_infirmiere"].HeaderText = "Compte rendu infirmiere";
             dgv_mesVisites.Columns["compte_rendu_patient"].Visible = true;
             dgv_mesVisites.Columns["compte_rendu_patient"].HeaderText = "Compte rendu patient";
+            dgv_mesVisites.AutoResizeColumns();
         }
 
         private void tsm_planningVisites_Click(object sender, EventArgs e)
@@ -93,8 +96,7 @@ namespace Liemie
 
         private void tsm_deconnexion_Click(object sender, EventArgs e)
         {
-            Connexion c = new Connexion();
-            c.Show();
+            new Connexion().Show();
             this.Hide();
         }
 
@@ -103,6 +105,15 @@ namespace Liemie
             Application.Exit();
         }
 
-
+        private void btn_saisirSoinDeLaVisite_Click(object sender, EventArgs e)
+        {
+            int i;
+            if (dgv_mesVisites.SelectedCells.Count > 0)
+            {
+                i = Convert.ToInt32(((visite)bs_mesVisites.Current).id);
+                SaisieSoinsVisite ssv = new SaisieSoinsVisite(i);
+                ssv.ShowDialog();
+            }
+        }
     }
 }

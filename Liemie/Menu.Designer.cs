@@ -38,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl_mesVisites = new System.Windows.Forms.Panel();
+            this.btn_saisirSoinDeLaVisite = new System.Windows.Forms.Button();
             this.btn_màjVisites = new System.Windows.Forms.Button();
             this.dgv_mesVisites = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -89,9 +90,9 @@
             this.pnl_menu.Controls.Add(this.pictureBox1);
             this.pnl_menu.Controls.Add(this.label2);
             this.pnl_menu.Location = new System.Drawing.Point(11, 26);
-            this.pnl_menu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_menu.Name = "pnl_menu";
-            this.pnl_menu.Size = new System.Drawing.Size(677, 373);
+            this.pnl_menu.Size = new System.Drawing.Size(86, 78);
             this.pnl_menu.TabIndex = 1;
             // 
             // pictureBox1
@@ -117,21 +118,32 @@
             // 
             // pnl_mesVisites
             // 
+            this.pnl_mesVisites.Controls.Add(this.btn_saisirSoinDeLaVisite);
             this.pnl_mesVisites.Controls.Add(this.btn_màjVisites);
             this.pnl_mesVisites.Controls.Add(this.dgv_mesVisites);
             this.pnl_mesVisites.Controls.Add(this.label1);
-            this.pnl_mesVisites.Location = new System.Drawing.Point(122, 32);
-            this.pnl_mesVisites.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_mesVisites.Location = new System.Drawing.Point(11, 26);
+            this.pnl_mesVisites.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_mesVisites.Name = "pnl_mesVisites";
-            this.pnl_mesVisites.Size = new System.Drawing.Size(99, 72);
+            this.pnl_mesVisites.Size = new System.Drawing.Size(677, 373);
             this.pnl_mesVisites.TabIndex = 2;
+            // 
+            // btn_saisirSoinDeLaVisite
+            // 
+            this.btn_saisirSoinDeLaVisite.Location = new System.Drawing.Point(222, 323);
+            this.btn_saisirSoinDeLaVisite.Name = "btn_saisirSoinDeLaVisite";
+            this.btn_saisirSoinDeLaVisite.Size = new System.Drawing.Size(204, 32);
+            this.btn_saisirSoinDeLaVisite.TabIndex = 3;
+            this.btn_saisirSoinDeLaVisite.Text = "Saisir les soins de la visite sélectionnée";
+            this.btn_saisirSoinDeLaVisite.UseVisualStyleBackColor = true;
+            this.btn_saisirSoinDeLaVisite.Click += new System.EventHandler(this.btn_saisirSoinDeLaVisite_Click);
             // 
             // btn_màjVisites
             // 
-            this.btn_màjVisites.Location = new System.Drawing.Point(18, 317);
-            this.btn_màjVisites.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_màjVisites.Location = new System.Drawing.Point(18, 323);
+            this.btn_màjVisites.Margin = new System.Windows.Forms.Padding(2);
             this.btn_màjVisites.Name = "btn_màjVisites";
-            this.btn_màjVisites.Size = new System.Drawing.Size(176, 44);
+            this.btn_màjVisites.Size = new System.Drawing.Size(146, 32);
             this.btn_màjVisites.TabIndex = 2;
             this.btn_màjVisites.Text = "Mettre à jour les visites";
             this.btn_màjVisites.UseVisualStyleBackColor = true;
@@ -144,12 +156,12 @@
             this.dgv_mesVisites.AllowUserToResizeColumns = false;
             this.dgv_mesVisites.AllowUserToResizeRows = false;
             this.dgv_mesVisites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_mesVisites.Location = new System.Drawing.Point(18, 48);
-            this.dgv_mesVisites.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_mesVisites.Location = new System.Drawing.Point(10, 44);
+            this.dgv_mesVisites.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_mesVisites.Name = "dgv_mesVisites";
             this.dgv_mesVisites.ReadOnly = true;
             this.dgv_mesVisites.RowTemplate.Height = 24;
-            this.dgv_mesVisites.Size = new System.Drawing.Size(643, 258);
+            this.dgv_mesVisites.Size = new System.Drawing.Size(656, 258);
             this.dgv_mesVisites.TabIndex = 1;
             // 
             // label1
@@ -172,8 +184,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 410);
-            this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.pnl_mesVisites);
+            this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -212,5 +224,6 @@
         private System.Windows.Forms.Button btn_màjVisites;
         private System.Windows.Forms.ToolStripMenuItem tsm_deconnexion;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_saisirSoinDeLaVisite;
     }
 }

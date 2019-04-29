@@ -131,6 +131,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaisieSoinsVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaisieSoinsVisite.Designer.cs">
+      <DependentUpon>SaisieSoinsVisite.cs</DependentUpon>
+    </Compile>
     <Compile Include="soins.cs">
       <DependentUpon>mdlKaliemie.tt</DependentUpon>
     </Compile>
@@ -164,6 +170,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SaisieSoinsVisite.resx">
+      <DependentUpon>SaisieSoinsVisite.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="mdlKaliemie.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>mdlKaliemie.Designer.cs</LastGenOutput>
