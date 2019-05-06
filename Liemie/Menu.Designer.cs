@@ -127,6 +127,7 @@
             this.pnl_mesVisites.Name = "pnl_mesVisites";
             this.pnl_mesVisites.Size = new System.Drawing.Size(677, 373);
             this.pnl_mesVisites.TabIndex = 2;
+            this.pnl_mesVisites.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_mesVisites_Paint);
             // 
             // btn_saisirSoinDeLaVisite
             // 
@@ -156,22 +157,22 @@
             this.dgv_mesVisites.AllowUserToResizeColumns = false;
             this.dgv_mesVisites.AllowUserToResizeRows = false;
             this.dgv_mesVisites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_mesVisites.Location = new System.Drawing.Point(10, 44);
+            this.dgv_mesVisites.Location = new System.Drawing.Point(10, 42);
             this.dgv_mesVisites.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_mesVisites.Name = "dgv_mesVisites";
             this.dgv_mesVisites.ReadOnly = true;
             this.dgv_mesVisites.RowTemplate.Height = 24;
-            this.dgv_mesVisites.Size = new System.Drawing.Size(656, 258);
+            this.dgv_mesVisites.Size = new System.Drawing.Size(658, 258);
             this.dgv_mesVisites.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 23.7913F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 22F);
             this.label1.Location = new System.Drawing.Point(250, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 39);
+            this.label1.Size = new System.Drawing.Size(169, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mes visites";
             // 

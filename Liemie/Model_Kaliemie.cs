@@ -135,7 +135,6 @@ namespace Liemie
             return vretour;
         }
 
-
         public static string RapatrierMesVisites(int identifiant)
         {
             string vretour = "";
@@ -288,5 +287,15 @@ namespace Liemie
                           .OrderBy(x => x.date_prevue);
             return LQuery.ToList();
         }
+
+        #region SaisieSoinsVisite function
+
+        public static List<categ_soins> listCategSoins()
+        {
+            return maConnexion.categ_soins.ToList();
+        }
+
+
+        #endregion
     }
 }

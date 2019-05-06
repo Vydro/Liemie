@@ -107,13 +107,15 @@ namespace Liemie
 
         private void btn_saisirSoinDeLaVisite_Click(object sender, EventArgs e)
         {
-            int i;
             if (dgv_mesVisites.SelectedCells.Count > 0)
             {
-                i = Convert.ToInt32(((visite)bs_mesVisites.Current).id);
-                SaisieSoinsVisite ssv = new SaisieSoinsVisite(i);
-                ssv.ShowDialog();
+                new SaisieSoinsVisite(((visite)bs_mesVisites.Current).id).ShowDialog();
             }
+        }
+
+        private void pnl_mesVisites_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
