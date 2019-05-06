@@ -250,6 +250,29 @@ namespace Liemie
             return v;
         }
 
+        public static string AjouterSoinsVisite(int idVisite, int idCategSoins, int idTypeSoins, int idSoins, short prevu, short realise)
+        {
+            string vretour ="";
+            try
+            {
+                soins_visite sv = new soins_visite
+                {
+                    visite = idVisite,
+                    id_categ_soins = idCategSoins,
+                    id_type_soins = idTypeSoins,
+                    id_soins = idSoins,
+                    prevu = prevu,
+                    realise = realise,
+                };
+                maConnexion.soins_visite.Add(sv);
+                maConnexion.SaveChanges();
+                vretour = "visite enregistrée";
+            }
+            catch (Exception e) { vretour = e.ToString(); }
+
+            return vretour;
+        }
+
         public static bool VisiteExiste(int idVisite)
         {
             bool vretour = false;
